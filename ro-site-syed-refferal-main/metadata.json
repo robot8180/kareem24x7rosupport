@@ -1,8 +1,0 @@
-{
-  "name": "24x7 RO Support",
-  "description": "24x7 RO Support - Fast 60-90 min doorstep RO water purifier repair, genuine filter replacement, AMC and service in Bangalore.",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
