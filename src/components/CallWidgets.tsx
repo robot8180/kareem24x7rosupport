@@ -20,7 +20,7 @@ export const CallWidgets: React.FC<CallWidgetsProps> = ({
   const phone = customPhone || BUSINESS_DETAILS.phone;
   const formattedPhone = customPhone || BUSINESS_DETAILS.formattedPhone;
   const telLink = `tel:${phone}`;
-  const whatsappNumber = customWhatsApp || BUSINESS_DETAILS.whatsappNumber || '919502530203';
+  const whatsappNumber = customWhatsApp || BUSINESS_DETAILS.whatsappNumber || '918095855473';
 
   // Customize pre-filled greeting message based on current page
   const brandConfig = BRAND_THEME_MAP[pathname];

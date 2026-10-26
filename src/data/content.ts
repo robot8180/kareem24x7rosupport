@@ -4,9 +4,9 @@ export const BUSINESS_DETAILS = {
   name: '24x7 RO Support',
   fullName: '24x7 RO Support - Water Purifier Repair & Maintenance',
   logoUrl: 'https://i.ibb.co/k6cRgnyt/IMG-20260805-WA0010.jpg',
-  phone: '09502530203',
-  formattedPhone: '095025 30203',
-  whatsappNumber: '919502530203',
+  phone: '08095855473',
+  formattedPhone: '080958 55473',
+  whatsappNumber: '918095855473',
   address: 'Bangalore, Karnataka, India',
   city: 'Bangalore',
   state: 'Karnataka',
@@ -439,7 +439,7 @@ export const BANGALORE_LOCALITIES = [
 export const HOMEPAGE_FAQS: FAQItem[] = [
   {
     question: 'How quickly can a service technician visit my home in Bangalore?',
-    answer: 'We provide prompt 60 to 90 minute doorstep service across all Bangalore areas including Whitefield, Koramangala, HSR Layout, Indiranagar, Electronic City, Marathahalli, Bellandur, Hebbal, and Jayanagar. You can book online or call 095025 30203 for immediate dispatch.',
+    answer: 'We provide prompt 60 to 90 minute doorstep service across all Bangalore areas including Whitefield, Koramangala, HSR Layout, Indiranagar, Electronic City, Marathahalli, Bellandur, Hebbal, and Jayanagar. You can book online or call 080958 55473 for immediate dispatch.',
   },
   {
     question: 'Which water purifier brands do you repair and service in Bangalore?',
