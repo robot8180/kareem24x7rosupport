@@ -401,6 +401,210 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1787239134/file_0000000041048211bfb990996067ea39_yiuihn.png',
     heroImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1789495220/IMG-20260915-WA0028_dfajkz.jpg',
   },
+
+  'bluestar-service': {
+    id: 'bluestar',
+    name: 'Blue Star',
+    slug: '/bluestar-service',
+    logoText: 'BLUE STAR',
+    logoUrl: 'https://resources.bluestarindia.com/Blue_Star_Built_on_Trust_Normal_1_fbb4a9bbbc.png',
+    tagline: 'Alkaline Mineral Health & Hot/Cold Purity — Expert Blue Star RO Service',
+    accentColor: 'from-blue-700 to-indigo-600',
+    description: 'Ensure pure, safe, and mineral-balanced drinking water with certified repair and servicing for Blue Star Stella, Aristo, Majesto, Eleanor, Imperia, and Edge series in Bangalore. Our skilled technicians specialize in dual-temperature hot & cold RO mechanisms, alkaline mineral balance, sediment/carbon filter changes, and rapid 60–90 minute doorstep dispatch.',
+    metaTitle: 'Blue Star RO Service Bangalore | Doorstep Water Purifier Repair & Filter Change',
+    metaDescription: 'Expert doorstep Blue Star RO water purifier repair across Bangalore. Certified service for Stella, Aristo & Majesto models. Genuine filter replacement, AMC & 30-day warranty.',
+    commonProblems: [
+      'Front panel indicator blinking or electronic UV failure alert in Blue Star purifier',
+      'Water leaking from internal solenoid valve, auto-cutoff switch, or pipe connectors',
+      'Slow water flow rate or long storage tank filling time for Stella/Aristo models',
+      'Bitter, metallic, or unusual taste in purified alkaline drinking water',
+      'Hot or cold water dispensing mechanism not functioning or temperature error',
+      'Machine not switching on due to burnt internal SMPS power adaptor or PCB glitch',
+    ],
+    brandFaqs: [
+      {
+        question: 'Are your technicians trained on Blue Star hot and cold RO water purifiers?',
+        answer: 'Yes, our certified technicians have specialized training on Blue Star Stella hot & cold, Aristo, Majesto, and Eleanor RO systems, including electronic temperature controls and dual compressors.',
+      },
+      {
+        question: 'Do you supply genuine Blue Star replacement filters and RO membranes?',
+        answer: 'We supply 100% genuine and compatible high-grade sediment cartridges, pre/post carbon blocks, mineral taste enhancers, and high-rejection RO membranes suited for Bangalore water.',
+      },
+      {
+        question: 'How fast can a Blue Star RO technician arrive at my home in Bangalore?',
+        answer: 'Our mobile service technicians are stationed across all major Bangalore localities and reach your doorstep within 60 to 90 minutes of booking confirmation.',
+      },
+      {
+        question: 'What is the diagnostic inspection fee for Blue Star RO servicing?',
+        answer: 'Our doorstep inspection and diagnosis starts at ₹299. If you proceed with our recommended service or filter replacement, this fee is adjusted against the final invoice.',
+      },
+      {
+        question: 'Why is the red UV or filter alert indicator glowing on my Blue Star purifier?',
+        answer: 'A red alert typically indicates an exhausted filter cartridge capacity, UV chamber lamp failure, or pressure sensor trip. Our technician will test and replace the component on-site.',
+      },
+      {
+        question: 'Do you offer Annual Maintenance Contracts (AMC) for Blue Star water purifiers?',
+        answer: 'Yes! Our Blue Star AMC packages include scheduled preventive maintenance visits, free filter and membrane renewals, and priority zero-labor emergency breakdown support all year.',
+      },
+      {
+        question: 'What post-service warranty do you provide on Blue Star repair jobs?',
+        answer: 'We provide an ironclad 30-day labor warranty on all repair services, plus manufacturer warranty coverage on newly fitted booster pumps, SMPS adapters, and RO membranes.',
+      },
+      {
+        question: 'Can you test and calibrate the alkaline mineral output on my Blue Star purifier?',
+        answer: 'Yes, our technicians carry digital TDS meters and pH testing kits to verify and calibrate the mineralizer cartridge to ensure an optimal 60–120 PPM and healthy alkaline balance.',
+      },
+      {
+        question: 'Why is my Blue Star RO vibrating or making a humming sound?',
+        answer: 'Loud humming usually indicates low inlet water pressure, booster pump airlock, or worn pump head bearings. Our technician will diagnose and quiet the system during the visit.',
+      },
+    ],
+    popularSearches: [
+      'Blue Star RO service Bangalore',
+      'Blue Star water purifier repair near me',
+      'Blue Star filter replacement cost',
+      'Blue Star Stella repair Bangalore',
+      'Blue Star RO AMC plan Bangalore',
+    ],
+    showcaseImage: '/images/bluestar-showcase.jpg',
+    heroImage: '/images/bluestar-hero.jpg',
+  },
+
+  'livpure-service': {
+    id: 'livpure',
+    name: 'Livpure',
+    slug: '/livpure-service',
+    logoText: 'LIVPURE',
+    logoUrl: 'https://livpure.com/cdn/shop/files/Livpure_LOGO_Purple_2048x2048_8465dc4a-1c7e-472e-ab6c-b78e8af8446f.webp?v=1737784047&width=500',
+    tagline: 'Smart Living & Mineral-Rich Hydration — Dedicated Livpure RO Repair & Care',
+    accentColor: 'from-purple-700 to-indigo-600',
+    description: 'Reliable doorstep repair, filter replacement, and preventive maintenance for Livpure Bolt, Glo, Zinger, Platino, Pep Pro, and Envy RO water purifiers across Bangalore. Our certified technicians specialize in Livpure taste enhancers, mineral cartridge calibration, electronic motherboard diagnostics, and 60–90 minute doorstep service.',
+    metaTitle: 'Livpure RO Repair & Service Bangalore | Doorstep Filter Replacement',
+    metaDescription: 'Certified doorstep Livpure RO water purifier repair in Bangalore. Same-day service for Bolt, Glo, Zinger & Platino. Genuine filters, taste enhancers & 30-day warranty.',
+    commonProblems: [
+      'Livpure smart LED indicator flashing or continuous warning buzzer sound',
+      'Mineralizer / taste enhancer cartridge exhausted causing flat or bitter water taste',
+      'Extremely slow filtration rate or storage tank taking hours to fill',
+      'Water leaking from bottom push-fit connectors, elbow joints, or booster pump',
+      'TDS controller drift resulting in unusually high dissolved solids in purified water',
+      'SMPS power supply adapter tripped or purifier not turning on',
+    ],
+    brandFaqs: [
+      {
+        question: 'Are your technicians qualified to service all Livpure RO models?',
+        answer: 'Yes, our technicians have extensive experience servicing Livpure Glo, Bolt, Zinger, Platino, Touch Plus, Pep Pro, and Smart RO purifiers throughout Bangalore.',
+      },
+      {
+        question: 'Do you provide genuine Livpure taste enhancers and filter kits?',
+        answer: 'We exclusively fit high-grade certified sediment filters, activated carbon blocks, silver-impregnated taste enhancers, and high-rejection RO membranes.',
+      },
+      {
+        question: 'How quickly can a Livpure service technician visit my home in Bangalore?',
+        answer: 'Our certified mobile technicians are stationed across all Bangalore neighborhoods, reaching your home within 60 to 90 minutes of your booking confirmation.',
+      },
+      {
+        question: 'What is the visiting inspection fee for Livpure RO purifiers?',
+        answer: 'Our diagnostic inspection fee is just ₹299. If you approve our recommended repair or filter replacement, this fee is completely adjusted against your invoice.',
+      },
+      {
+        question: 'Why is my Livpure RO making a beeping sound or flashing red?',
+        answer: 'A blinking warning light or buzzer indicates an exhausted sediment/carbon cartridge, low water pressure, or UV lamp issue. Our technician diagnoses and resets the unit on-site.',
+      },
+      {
+        question: 'Do you offer Livpure Annual Maintenance Contracts (AMC) in Bangalore?',
+        answer: 'Yes, our Livpure AMC plans cover 3 scheduled maintenance visits, complete filter and membrane renewals, and unlimited free breakdown visits all year long.',
+      },
+      {
+        question: 'What warranty is offered on Livpure repairs and replacement parts?',
+        answer: 'All Livpure repair services come with our standard 30-day doorstep labor warranty and up to 1-year manufacturer warranty on replacement spare parts.',
+      },
+      {
+        question: 'Can you check and adjust the water TDS on a Livpure purifier?',
+        answer: 'Yes, our technician conducts digital input/output TDS tests and calibrates the mineral cartridge to achieve pure, healthy drinking water within the 50–120 PPM sweet spot.',
+      },
+      {
+        question: 'Why is purified water tasting bitter from my Livpure machine?',
+        answer: 'Bitter taste usually means the activated post-carbon cartridge or RO membrane has reached the end of its lifespan. Replacing the cartridge restores natural sweet taste.',
+      },
+    ],
+    popularSearches: [
+      'Livpure RO service Bangalore',
+      'Livpure water purifier repair near me',
+      'Livpure Glo filter replacement cost',
+      'Livpure Zinger repair Bangalore',
+      'Livpure RO AMC cost Bangalore',
+    ],
+    showcaseImage: '/images/livpure-showcase.jpg',
+    heroImage: '/images/livpure-hero.jpg',
+  },
+
+  'havells-service': {
+    id: 'havells',
+    name: 'Havells',
+    slug: '/havells-service',
+    logoText: 'HAVELLS',
+    logoUrl: 'https://havells.com/media/logo/stores/1/Havells_Logo.svg',
+    tagline: '100% RO & UV Purification with Revitalizer Purity — Specialized Havells RO Care',
+    accentColor: 'from-red-600 to-orange-600',
+    description: 'Complete doorstep repair, filter change, and sanitization for Havells Max, Pro, Digiplus, Gracia, Delite, and Fab alkaline RO water purifiers across Bangalore. Our experienced technicians carry genuine Havells-compatible sediment, pre-carbon, RO membranes, and Revitalizer cartridges to restore 100% safe, mineral-balanced drinking water within 60–90 minutes.',
+    metaTitle: 'Havells RO Service Bangalore | Doorstep Water Purifier Repair & Care',
+    metaDescription: 'Specialized doorstep Havells RO repair and servicing in Bangalore. Genuine filter replacement for Havells Max, Digiplus, Delite & Gracia. 60–90 min visit & 30-day warranty.',
+    commonProblems: [
+      'Havells Digiplus smart touch display error or filter change alert glowing',
+      'Revitalizer / mineral cartridge depletion causing flat or stale water taste',
+      'Water leaking from internal brass valve, auto-flush assembly, or tank seal',
+      'Booster pump vibrating loudly or failing to create necessary RO membrane pressure',
+      'Slow water flow rate or purified storage tank taking abnormally long to fill',
+      'Power supply failure with SMPS burnt out or machine not switching on',
+    ],
+    brandFaqs: [
+      {
+        question: 'Do you service all models of Havells RO water purifiers?',
+        answer: 'Yes, our certified technicians are trained on all Havells water purifiers including Havells Max, Digiplus, Gracia, Delite, Pro, UTC (Under-the-Counter), and Fab models.',
+      },
+      {
+        question: 'Do you carry genuine Havells Revitalizer and membrane cartridges?',
+        answer: 'Yes, we supply authentic Havells-compatible multi-stage filter cartridges, high-rejection RO membranes, mineralizers, and patented Revitalizer cartridges.',
+      },
+      {
+        question: 'How fast can a Havells technician reach my house in Bangalore?',
+        answer: 'Our mobile technicians are distributed across Bangalore localities and can reach your residence within 60 to 90 minutes of booking confirmation.',
+      },
+      {
+        question: 'What is the visiting and diagnostic inspection fee for Havells RO?',
+        answer: 'Our doorstep inspection and diagnosis starts at just ₹299. If you proceed with our recommended repair or filter replacement, this fee is deducted from the bill.',
+      },
+      {
+        question: 'Why is the filter replacement icon blinking on my Havells Digiplus?',
+        answer: 'The blinking filter alert signifies that the internal cartridge cycle has completed its rated gallon capacity. Our technician will replace the filter and reset the counter.',
+      },
+      {
+        question: 'Do you offer Annual Maintenance Contracts (AMC) for Havells water purifiers?',
+        answer: 'Yes! Our Havells AMC package includes 3 scheduled preventive visits, periodic filter and membrane renewals, and unlimited free breakdown calls throughout the year.',
+      },
+      {
+        question: 'What warranty is provided on Havells water purifier repairs?',
+        answer: 'We provide a comprehensive 30-day doorstep labor warranty on all repairs, as well as standard manufacturer warranty on replacement pumps, SMPS, and membranes.',
+      },
+      {
+        question: 'Can you check and adjust the output mineral TDS level on Havells purifiers?',
+        answer: 'Yes, our technician conducts accurate digital TDS tests before and after service and adjusts the mineral valve to deliver the ideal 60–120 PPM drinking water quality.',
+      },
+      {
+        question: 'Why is water leaking continuously into the drain pipe from my Havells machine?',
+        answer: 'Continuous drain flow without cutoff usually points to a faulty auto-shutoff valve (SV) or low water pressure. Our technician replaces the valve on-site in under 45 minutes.',
+      },
+    ],
+    popularSearches: [
+      'Havells RO service Bangalore',
+      'Havells water purifier repair near me',
+      'Havells Max filter replacement cost',
+      'Havells Digiplus repair Bangalore',
+      'Havells RO AMC cost Bangalore',
+    ],
+    showcaseImage: '/images/havells-showcase.jpg',
+    heroImage: '/images/havells-hero.jpg',
+  },
 };
 
 export const BANGALORE_LOCALITIES = [

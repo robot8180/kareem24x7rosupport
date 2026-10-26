@@ -6,6 +6,9 @@ export const SUBDOMAIN_ROUTE_MAP: Record<string, PageRoute> = {
   pureit: '/pureit-service',
   aosmith: '/aosmith-service',
   lg: '/lg-service',
+  bluestar: '/bluestar-service',
+  livpure: '/livpure-service',
+  havells: '/havells-service',
 };
 
 /**

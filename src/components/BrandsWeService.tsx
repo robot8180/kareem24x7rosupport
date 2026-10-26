@@ -31,6 +31,18 @@ export function BrandsWeService() {
       key: 'lg-service',
       data: BRAND_PAGES_DATA['lg-service'],
     },
+    {
+      key: 'bluestar-service',
+      data: BRAND_PAGES_DATA['bluestar-service'],
+    },
+    {
+      key: 'livpure-service',
+      data: BRAND_PAGES_DATA['livpure-service'],
+    },
+    {
+      key: 'havells-service',
+      data: BRAND_PAGES_DATA['havells-service'],
+    },
   ];
 
   // Duplicated for a seamless infinite auto-sliding loop
@@ -66,6 +78,24 @@ export function BrandsWeService() {
       slug: '/lg-service',
       logoUrl: BRAND_PAGES_DATA['lg-service']?.logoUrl,
       desc: 'Stainless Steel Tank RO & Digital Sterilization',
+    },
+    {
+      name: 'Blue Star Water Purifiers',
+      slug: '/bluestar-service',
+      logoUrl: BRAND_PAGES_DATA['bluestar-service']?.logoUrl,
+      desc: 'Stella Hot & Cold, Aristo, Majesto & Eleanor',
+    },
+    {
+      name: 'Livpure Smart RO',
+      slug: '/livpure-service',
+      logoUrl: BRAND_PAGES_DATA['livpure-service']?.logoUrl,
+      desc: 'Bolt, Glo, Zinger, Platino & Mineralizers',
+    },
+    {
+      name: 'Havells Water Purifiers',
+      slug: '/havells-service',
+      logoUrl: BRAND_PAGES_DATA['havells-service']?.logoUrl,
+      desc: 'Max, Digiplus, Gracia, Delite & Revitalizer',
     },
   ];
 

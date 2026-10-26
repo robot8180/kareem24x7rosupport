@@ -16,6 +16,18 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'livpure.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'havells.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'resources.bluestarindia.com',
+      },
     ],
   },
 };

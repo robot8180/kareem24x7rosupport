@@ -6,6 +6,9 @@ const SUBDOMAIN_MAP: Record<string, string> = {
   pureit: '/pureit-service',
   aosmith: '/aosmith-service',
   lg: '/lg-service',
+  bluestar: '/bluestar-service',
+  livpure: '/livpure-service',
+  havells: '/havells-service',
 };
 
 export function middleware(req: NextRequest) {
