@@ -47,14 +47,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     : `https://www.roservice24x7.in/${brandKey}`;
 
   return {
-    title: `${brand.name} RO Service Bangalore | ${BUSINESS_DETAILS.name} Doorstep Repair`,
-    description: brand.metaDescription,
+    title: `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes | Call ${BUSINESS_DETAILS.formattedPhone}`,
+    description: `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes. Fast doorstep repair, genuine filter change, AMC in Bangalore.`,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${brand.name} RO Service Bangalore | ${BUSINESS_DETAILS.name}`,
-      description: brand.metaDescription,
+      title: `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes | ${BUSINESS_DETAILS.name}`,
+      description: `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes. Fast doorstep repair, genuine filter change, AMC in Bangalore.`,
       url: canonicalUrl,
       type: 'website',
       images: brand.heroImage ? [{ url: brand.heroImage }] : [],
@@ -157,8 +157,8 @@ export default async function BrandPage({ params }: PageProps) {
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: `${brand.name} Water Purifier Repair & Service Bangalore`,
-      serviceType: 'Water Purifier Repair, Maintenance & Filter Replacement',
+      name: `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes`,
+      serviceType: `${brand.name} Water Purifier Repair, Maintenance & Filter Replacement`,
       provider: {
         '@type': 'LocalBusiness',
         name: BUSINESS_DETAILS.name,
@@ -168,7 +168,7 @@ export default async function BrandPage({ params }: PageProps) {
         '@type': 'City',
         name: 'Bangalore',
       },
-      description: brand.metaDescription,
+      description: `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes`,
     },
   ];
 
@@ -187,7 +187,7 @@ export default async function BrandPage({ params }: PageProps) {
         <section className="w-full bg-white pt-6 sm:pt-8 md:pt-10 pb-4 sm:pb-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              Doorstep <span style={{ color: theme.primary }}>{brand.name}</span> RO Water Purifier Repair &amp; Service in Bangalore
+              <span style={{ color: theme.primary }}>{brand.name}</span> Water Purifier Service Bangalore Doorstep Service In 60 Minutes
             </h1>
           </div>
         </section>
@@ -200,7 +200,7 @@ export default async function BrandPage({ params }: PageProps) {
             <div className="w-full relative h-[240px] sm:h-[340px] md:h-[400px] lg:h-[460px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xs border border-slate-200/80">
               <img
                 src={brand.heroImage || 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1785990425/IMG_20260806_095543_woel3l.jpg'}
-                alt={`Doorstep ${brand.name} RO Water Purifier Repair & Service in Bangalore`}
+                alt={`${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes`}
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center"
               />
