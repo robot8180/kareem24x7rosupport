@@ -306,18 +306,18 @@ export default function HomePage() {
         {/* ========================================================
             REVIEWS & TESTIMONIALS
             ======================================================== */}
-        <section className="py-16 sm:py-20 bg-[#f8fbfe] border-t border-slate-200/80">
+        <section className="py-10 sm:py-16 lg:py-20 bg-[#f8fbfe] border-t border-slate-200/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <div className="flex items-center justify-center gap-1 text-amber-400 mb-2">
+            <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
+              <div className="flex items-center justify-center gap-1 text-amber-400 mb-1.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-amber-400" />
+                  <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400" />
                 ))}
               </div>
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
                 Trusted by 25,000+ Bangalore Families
               </h2>
-              <p className="text-slate-600 text-sm sm:text-base mt-2">
+              <p className="text-slate-600 text-xs sm:text-sm md:text-base mt-1.5 sm:mt-2">
                 Real feedback from homeowners across Whitefield, Indiranagar, HSR Layout, Koramangala, and beyond.
               </p>
             </div>

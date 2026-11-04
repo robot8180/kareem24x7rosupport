@@ -513,18 +513,18 @@ export default async function BrandPage({ params }: PageProps) {
         {/* ========================================================
             CUSTOMER REVIEWS & TESTIMONIALS SECTION
             ======================================================== */}
-        <section className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200/80">
+        <section className="py-10 sm:py-16 lg:py-20 bg-slate-50 border-t border-slate-200/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <div className="flex items-center justify-center gap-1 text-amber-400 mb-2">
+            <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
+              <div className="flex items-center justify-center gap-1 text-amber-400 mb-1.5">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-amber-400" />
+                  <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-amber-400" />
                 ))}
               </div>
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
                 Verified Customer Feedback in Bangalore
               </h2>
-              <p className="text-slate-600 text-sm sm:text-base mt-2">
+              <p className="text-slate-600 text-xs sm:text-sm md:text-base mt-1.5 sm:mt-2">
                 Real reviews from Bangalore residents who booked doorstep RO repairs, membrane changes, and filter service.
               </p>
             </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, CheckCircle2, Pause, Play } from 'lucide-react';
 import { Testimonial } from '@/src/types';
 
 interface ReviewCarouselProps {
@@ -13,114 +13,231 @@ interface ReviewCarouselProps {
 export function ReviewCarousel({
   testimonials,
   autoPlay = true,
-  autoPlayInterval = 5000,
+  autoPlayInterval = 4000,
 }: ReviewCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const totalSlides = testimonials.length;
+  const [isPaused, setIsPaused] = useState(false);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+  const totalSlides = testimonials?.length || 0;
 
-  const prevSlide = useCallback((e?: React.MouseEvent) => {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    setCurrentIndex((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
-  }, [totalSlides]);
-
-  const nextSlide = useCallback((e?: React.MouseEvent) => {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
+  const nextSlide = useCallback(() => {
+    if (totalSlides === 0) return;
     setCurrentIndex((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
   }, [totalSlides]);
 
-  const goToSlide = (slideIndex: number, e?: React.MouseEvent) => {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    setCurrentIndex(slideIndex);
+  const prevSlide = useCallback(() => {
+    if (totalSlides === 0) return;
+    setCurrentIndex((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
+  }, [totalSlides]);
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
   };
 
+  // Auto-play timer with pause on hover/touch
   useEffect(() => {
-    if (!autoPlay) return;
-    const slideInterval = setInterval(() => nextSlide(), autoPlayInterval);
-    return () => clearInterval(slideInterval);
-  }, [autoPlay, autoPlayInterval, nextSlide]);
+    if (!autoPlay || isPaused || totalSlides <= 1) return;
+
+    const timer = setInterval(() => {
+      nextSlide();
+    }, autoPlayInterval);
+
+    return () => clearInterval(timer);
+  }, [autoPlay, autoPlayInterval, isPaused, nextSlide, totalSlides]);
+
+  // Touch gesture handlers for mobile swiping
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsPaused(true);
+    setTouchStartX(e.targetTouches[0].clientX);
+    setTouchEndX(null);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX !== null && touchEndX !== null) {
+      const distance = touchStartX - touchEndX;
+      const isSwipeLeft = distance > 40;
+      const isSwipeRight = distance < -40;
+
+      if (isSwipeLeft) {
+        nextSlide();
+      } else if (isSwipeRight) {
+        prevSlide();
+      }
+    }
+    setTouchStartX(null);
+    setTouchEndX(null);
+    setTimeout(() => setIsPaused(false), 800);
+  };
 
   if (!testimonials || totalSlides === 0) return null;
 
+  // Helper to get initials
+  const getInitials = (name: string) => {
+    const parts = name.trim().split(' ');
+    if (parts.length >= 2) {
+      return (parts[0][0] + parts[1][0]).toUpperCase();
+    }
+    return name.slice(0, 2).toUpperCase();
+  };
+
   return (
-    <div className="w-full max-w-5xl mx-auto flex flex-col items-center relative">
-      <div className="relative w-full px-12 sm:px-16">
-        
-        {/* Track Container */}
-        <div className="overflow-hidden rounded-2xl bg-slate-50/50">
-          <div
-            className="flex w-full transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-          >
-            {testimonials.map((review) => (
-              <div key={review.id} className="w-full flex-shrink-0 p-4">
-                <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between h-full text-left max-w-3xl mx-auto">
-                  <div>
-                    <div className="flex items-center gap-1 mb-4">
-                      {[...Array(review.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <p className="text-base sm:text-lg text-slate-700 leading-relaxed italic mb-6">
-                      "{review.comment}"
-                    </p>
+    <div
+      className="w-full max-w-xl sm:max-w-2xl md:max-w-3xl mx-auto select-none px-2 sm:px-4"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Main Card Viewport */}
+      <div
+        className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-sm"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* Subtle animated auto-play timer bar */}
+        {autoPlay && !isPaused && (
+          <div className="absolute top-0 left-0 right-0 h-1 bg-slate-100 z-20 overflow-hidden">
+            <div
+              key={currentIndex}
+              className="h-full bg-gradient-to-r from-[#0070e0] to-sky-400"
+              style={{
+                animation: `slideProgress ${autoPlayInterval}ms linear forwards`,
+              }}
+            />
+          </div>
+        )}
+
+        {/* Sliding Slides Track */}
+        <div
+          className="flex transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {testimonials.map((review, idx) => (
+            <div
+              key={review.id || idx}
+              className="w-full shrink-0 p-4 sm:p-6 md:p-7 flex flex-col justify-between"
+            >
+              {/* Top Row: Stars + Rating + Verified Badge */}
+              <div className="flex items-center justify-between gap-2 mb-3 sm:mb-4">
+                <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-0.5 text-amber-400">
+                    {[...Array(review.rating || 5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400" />
+                    ))}
                   </div>
-                  <div className="pt-4 border-t border-slate-100">
-                    <p className="text-base font-bold text-slate-900">{review.name}</p>
-                    <p className="text-sm text-slate-500 mt-0.5">{review.locality} &middot; <span className="font-medium text-slate-700">{review.brandServiced}</span></p>
-                  </div>
+                  <span className="text-[11px] sm:text-xs font-bold text-slate-700 bg-amber-50 border border-amber-200/60 px-1.5 py-0.5 rounded">
+                    5.0
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2 py-0.5 rounded-full">
+                    <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                    <span>Verified Service</span>
+                  </span>
+                  {review.date && (
+                    <span className="text-[10px] sm:text-[11px] text-slate-400 hidden sm:inline">
+                      {review.date}
+                    </span>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Left Arrow Button */}
+              {/* Review Text Body - Comfortable and fully readable on mobile */}
+              <div className="relative mb-3 sm:mb-5">
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal text-left">
+                  <span className="text-[#0070e0] font-serif text-base sm:text-lg font-bold mr-1">“</span>
+                  {review.comment}
+                  <span className="text-[#0070e0] font-serif text-base sm:text-lg font-bold ml-1">”</span>
+                </p>
+              </div>
+
+              {/* Author & Brand Footnote */}
+              <div className="pt-3 sm:pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2 sm:gap-2.5 text-left min-w-0">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-[#0070e0] to-sky-400 text-white font-bold text-[10px] sm:text-xs flex items-center justify-center shrink-0 shadow-2xs">
+                    {getInitials(review.name)}
+                  </div>
+                  <div className="truncate">
+                    <p className="text-xs sm:text-sm font-extrabold text-slate-900 truncate leading-tight">
+                      {review.name}
+                    </p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-500 truncate mt-0.5">
+                      {review.locality}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="shrink-0 text-right">
+                  <span className="inline-block text-[9px] sm:text-[11px] font-bold text-[#0070e0] bg-sky-50 border border-sky-100 px-2 py-0.5 sm:py-1 rounded-md sm:rounded-lg">
+                    {review.brandServiced}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Sleek Compact Mobile & Desktop Navigation Controls */}
+      <div className="mt-3 sm:mt-4 flex items-center justify-between gap-2 sm:gap-3 px-1">
+        {/* Prev Button */}
         <button
           onClick={prevSlide}
           type="button"
-          className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-4 z-50 text-2xl rounded-full p-2 sm:p-3 bg-white border border-slate-200 text-slate-700 shadow-lg hover:bg-slate-50 hover:text-[#1d63d8] hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-blue-100"
-          aria-label="Previous slide"
+          aria-label="Previous review"
+          className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-[#0070e0] hover:border-[#0070e0] shadow-2xs flex items-center justify-center transition-all active:scale-95 cursor-pointer"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-4 h-4" />
         </button>
 
-        {/* Right Arrow Button */}
-        <button
-          onClick={nextSlide}
-          type="button"
-          className="absolute top-1/2 -translate-y-1/2 right-0 sm:right-4 z-50 text-2xl rounded-full p-2 sm:p-3 bg-white border border-slate-200 text-slate-700 shadow-lg hover:bg-slate-50 hover:text-[#1d63d8] hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-blue-100"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
-      </div>
-      
-      {/* Indicator Navigation Dots & Number */}
-      <div className="mt-6 flex flex-col items-center gap-4 z-10 w-full">
-        <div className="flex gap-2 flex-wrap justify-center w-full max-w-[80vw]">
-          {testimonials.map((_, slideIndex) => (
-            <button
-              key={slideIndex}
-              onClick={(e) => goToSlide(slideIndex, e)}
-              type="button"
-              className={`h-2.5 rounded-full transition-all duration-300 focus:outline-none ${
-                currentIndex === slideIndex ? 'w-8 bg-[#1d63d8]' : 'w-2.5 bg-slate-300 hover:bg-slate-400 cursor-pointer'
-              }`}
-              aria-label={`Go to slide ${slideIndex + 1}`}
-            />
-          ))}
+        {/* Center: Pagination Dots + Slide Counter */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1 sm:gap-1.5">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => goToSlide(idx)}
+                type="button"
+                aria-label={`Go to review ${idx + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  currentIndex === idx
+                    ? 'w-4 sm:w-6 bg-[#0070e0]'
+                    : 'w-1.5 sm:w-2 bg-slate-300 hover:bg-slate-400'
+                }`}
+              />
+            ))}
+          </div>
+
+          <span className="text-[10px] sm:text-xs font-semibold text-slate-500 font-mono bg-white px-2 py-0.5 rounded-md border border-slate-200/80">
+            {currentIndex + 1}/{totalSlides}
+          </span>
         </div>
-        <div className="text-sm font-semibold text-slate-600 bg-white px-4 py-1.5 rounded-full tabular-nums tracking-wide shadow-sm border border-slate-200 inline-block">
-          {currentIndex + 1} <span className="text-slate-400 mx-1">/</span> {totalSlides}
+
+        {/* Right side: Auto-play toggle + Next Button */}
+        <div className="flex items-center gap-1 sm:gap-1.5">
+          <button
+            onClick={() => setIsPaused(!isPaused)}
+            type="button"
+            aria-label={isPaused ? 'Resume auto slide' : 'Pause auto slide'}
+            className="w-7 h-7 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-colors cursor-pointer text-xs"
+            title={isPaused ? 'Resume auto slide' : 'Pause auto slide'}
+          >
+            {isPaused ? <Play className="w-3 h-3 fill-current" /> : <Pause className="w-3 h-3" />}
+          </button>
+
+          <button
+            onClick={nextSlide}
+            type="button"
+            aria-label="Next review"
+            className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-[#0070e0] hover:border-[#0070e0] shadow-2xs flex items-center justify-center transition-all active:scale-95 cursor-pointer"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </div>
