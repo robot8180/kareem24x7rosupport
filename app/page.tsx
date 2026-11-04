@@ -32,15 +32,15 @@ import { ReviewCarousel } from '@/src/components/ReviewCarousel';
 import { BrandsWeService } from '@/src/components/BrandsWeService';
 
 export const metadata: Metadata = {
-  title: `${BUSINESS_DETAILS.name} | Doorstep RO Water Purifier Repair & Service Bangalore | Call ${BUSINESS_DETAILS.formattedPhone}`,
+  title: `Water Purifier Service Bangalore Doorstep Service In 60 Minutes | Call ${BUSINESS_DETAILS.formattedPhone}`,
   description:
-    'Fast 60–90 min doorstep RO water purifier repair, genuine filter replacement, AMC & installation service in Bangalore. Expert technicians for Kent, Aquaguard, Pureit, AO Smith & LG.',
+    'Fast 60 min doorstep RO water purifier repair, genuine filter replacement, AMC & installation service in Bangalore. Expert technicians for Kent, Aquaguard, Pureit, AO Smith & LG.',
   alternates: {
     canonical: 'https://www.roservice24x7.in',
   },
   openGraph: {
-    title: `${BUSINESS_DETAILS.name} | Doorstep RO Water Purifier Repair & Service Bangalore`,
-    description: 'Fast 60–90 min doorstep RO water purifier repair, filter replacement & AMC in Bangalore.',
+    title: `Water Purifier Service Bangalore Doorstep Service In 60 Minutes | ${BUSINESS_DETAILS.name}`,
+    description: 'Fast 60 min doorstep RO water purifier repair, filter replacement & AMC in Bangalore.',
     url: 'https://www.roservice24x7.in',
     type: 'website',
   },
@@ -92,7 +92,7 @@ export default function HomePage() {
     '@type': 'LocalBusiness',
     name: BUSINESS_DETAILS.name,
     legalName: BUSINESS_DETAILS.fullName,
-    description: 'Doorstep RO Water Purifier Repair, Maintenance & Filter Replacement in Bangalore',
+    description: 'Water Purifier Service Bangalore Doorstep Service In 60 Minutes - Repair, Maintenance & Filter Replacement',
     url: 'https://www.roservice24x7.in',
     telephone: `+91${BUSINESS_DETAILS.phone.replace(/^0/, '')}`,
     email: BUSINESS_DETAILS.email,
@@ -133,7 +133,7 @@ export default function HomePage() {
         <section className="w-full bg-white pt-6 sm:pt-8 md:pt-10 pb-4 sm:pb-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              Doorstep RO Water Purifier Repair &amp; Service in Bangalore
+              Water Purifier Service Bangalore Doorstep Service In 60 Minutes
             </h1>
           </div>
         </section>
@@ -146,7 +146,7 @@ export default function HomePage() {
             <div className="w-full relative h-[240px] sm:h-[340px] md:h-[400px] lg:h-[460px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xs border border-slate-200/80">
               <img
                 src="https://res.cloudinary.com/dieq3fjuv/image/upload/v1785990425/IMG_20260806_095543_woel3l.jpg"
-                alt="Doorstep RO Water Purifier Repair & Service in Bangalore"
+                alt="Water Purifier Service Bangalore Doorstep Service In 60 Minutes"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center"
               />
