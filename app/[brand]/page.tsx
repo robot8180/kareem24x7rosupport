@@ -46,15 +46,31 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ? `https://${subdomain}.roservice24x7.in`
     : `https://www.roservice24x7.in/${brandKey}`;
 
+  const isAquaguard = brand.id === 'aquaguard' || brandKey === 'aquaguard-service';
+  const isKent = brand.id === 'kent' || brandKey === 'kent-service';
+  const isPureit = brand.id === 'pureit' || brandKey === 'pureit-service';
+  const isAosmith = brand.id === 'aosmith' || brandKey === 'aosmith-service';
+  
+  let headline = `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes`;
+  if (isKent) {
+    headline = 'Kent RO Service Bangalore Doorstep Service In 60 Minutes';
+  } else if (isAquaguard) {
+    headline = 'Aquaguard Service Bangalore Doorstep Service In 60 Minutes';
+  } else if (isPureit) {
+    headline = 'Pureit Service Bangalore Doorstep Service In 60 Minutes';
+  } else if (isAosmith) {
+    headline = 'AO Smith Service Bangalore Doorstep Service In 60 Minutes';
+  }
+
   return {
-    title: `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes | Call ${BUSINESS_DETAILS.formattedPhone}`,
-    description: `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes. Fast doorstep repair, genuine filter change, AMC in Bangalore.`,
+    title: `${headline} | Call ${BUSINESS_DETAILS.formattedPhone}`,
+    description: `${headline}. Fast doorstep repair, genuine filter change, AMC in Bangalore.`,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes | ${BUSINESS_DETAILS.name}`,
-      description: `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes. Fast doorstep repair, genuine filter change, AMC in Bangalore.`,
+      title: `${headline} | ${BUSINESS_DETAILS.name}`,
+      description: `${headline}. Fast doorstep repair, genuine filter change, AMC in Bangalore.`,
       url: canonicalUrl,
       type: 'website',
       images: brand.heroImage ? [{ url: brand.heroImage }] : [],
@@ -153,11 +169,33 @@ export default async function BrandPage({ params }: PageProps) {
     },
   ];
 
+  const isAquaguard = brand.id === 'aquaguard' || brandKey === 'aquaguard-service';
+  const isKent = brand.id === 'kent' || brandKey === 'kent-service';
+  const isPureit = brand.id === 'pureit' || brandKey === 'pureit-service';
+  const isAosmith = brand.id === 'aosmith' || brandKey === 'aosmith-service';
+
+  let headlineSuffix = 'Water Purifier Service Bangalore Doorstep Service In 60 Minutes';
+  let fullHeadline = `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes`;
+
+  if (isKent) {
+    headlineSuffix = 'RO Service Bangalore Doorstep Service In 60 Minutes';
+    fullHeadline = 'Kent RO Service Bangalore Doorstep Service In 60 Minutes';
+  } else if (isAquaguard) {
+    headlineSuffix = 'Service Bangalore Doorstep Service In 60 Minutes';
+    fullHeadline = 'Aquaguard Service Bangalore Doorstep Service In 60 Minutes';
+  } else if (isPureit) {
+    headlineSuffix = 'Service Bangalore Doorstep Service In 60 Minutes';
+    fullHeadline = 'Pureit Service Bangalore Doorstep Service In 60 Minutes';
+  } else if (isAosmith) {
+    headlineSuffix = 'Service Bangalore Doorstep Service In 60 Minutes';
+    fullHeadline = 'AO Smith Service Bangalore Doorstep Service In 60 Minutes';
+  }
+
   const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes`,
+      name: fullHeadline,
       serviceType: `${brand.name} Water Purifier Repair, Maintenance & Filter Replacement`,
       provider: {
         '@type': 'LocalBusiness',
@@ -168,7 +206,7 @@ export default async function BrandPage({ params }: PageProps) {
         '@type': 'City',
         name: 'Bangalore',
       },
-      description: `${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes`,
+      description: fullHeadline,
     },
   ];
 
@@ -187,7 +225,7 @@ export default async function BrandPage({ params }: PageProps) {
         <section className="w-full bg-white pt-6 sm:pt-8 md:pt-10 pb-4 sm:pb-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-              <span style={{ color: theme.primary }}>{brand.name}</span> Water Purifier Service Bangalore Doorstep Service In 60 Minutes
+              <span style={{ color: theme.primary }}>{brand.name}</span> {headlineSuffix}
             </h1>
           </div>
         </section>
@@ -200,7 +238,7 @@ export default async function BrandPage({ params }: PageProps) {
             <div className="w-full relative h-[240px] sm:h-[340px] md:h-[400px] lg:h-[460px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xs border border-slate-200/80">
               <img
                 src={brand.heroImage || 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1785990425/IMG_20260806_095543_woel3l.jpg'}
-                alt={`${brand.name} Water Purifier Service Bangalore Doorstep Service In 60 Minutes`}
+                alt={fullHeadline}
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center"
               />
