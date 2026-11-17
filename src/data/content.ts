@@ -2,20 +2,29 @@ import { BrandInfo, FAQItem, ServiceItem, Testimonial } from '../types';
 
 export const BUSINESS_DETAILS = {
   name: '24x7 RO Support',
-  fullName: '24x7 RO Support - Water Purifier Repair & Maintenance',
+  fullName: '24x7 RO Support (Chinna Enterprises)',
+  legalName: 'RAHAMATULLA SHEIK EKRAM',
+  tradeName: 'CHINNA ENTERPRISES',
+  constitution: 'Proprietorship',
+  gstin: '29ILVPS3341J1Z4',
+  gstNumber: '29ILVPS3341J1Z4',
   logoUrl: 'https://i.ibb.co/k6cRgnyt/IMG-20260805-WA0010.jpg',
   phone: '08095855473',
   formattedPhone: '080958 55473',
   whatsappNumber: '918095855473',
-  address: 'Bangalore, Karnataka, India',
-  city: 'Bangalore',
+  address: 'No. 38/7, Ground Floor, Kanakapura Road, Near Metro Pillar No. 115, Yalanchenahalli, Bengaluru, Karnataka 560062',
+  streetAddress: 'No. 38/7, Ground Floor, Kanakapura Road, Near Metro Pillar No. 115, Yalanchenahalli',
+  locality: 'Yalanchenahalli',
+  landmark: 'Near Metro Pillar No. 115',
+  city: 'Bengaluru',
   state: 'Karnataka',
-  pincodePlaceholder: '560001',
+  pincode: '560062',
+  pincodePlaceholder: '560062',
   workingHours: '8:00 AM - 9:00 PM (All 7 Days)',
   email: 'Rocarebangalorero@gmail.com',
   formSubmitEmail: 'Rocarebangalorero@gmail.com',
-  udyamNumber: 'UDYAM-KR-03-0558507',
-  disclaimer: 'Disclaimer: 24x7 RO Support is an independent multi-brand water purifier service center in Bangalore. We provide repair, maintenance, and genuine filter replacement services. Brand names and logos are used strictly for identification and compatibility purposes.',
+  gstRegistrationDate: '29/07/2024',
+  disclaimer: 'Disclaimer: 24x7 RO Support (Chinna Enterprises) is an independent multi-brand water purifier service center in Bangalore. We provide repair, maintenance, and genuine filter replacement services. Brand names and logos are used strictly for identification and compatibility purposes.',
 };
 
 export const SERVICES_LIST: ServiceItem[] = [
@@ -638,6 +647,8 @@ export const BANGALORE_LOCALITIES = [
   'Domlur',
   'New BEL Road',
   'CV Raman Nagar',
+  'Kanakapura Road',
+  'Yalanchenahalli',
 ];
 
 export const HOMEPAGE_FAQS: FAQItem[] = [

@@ -38,7 +38,7 @@ export default function TermsOfServicePage() {
             <div className="space-y-3">
               <h2 className="text-base sm:text-lg font-bold text-slate-900">Welcome to {BUSINESS_DETAILS.name}!</h2>
               <p className="text-slate-600 text-xs sm:text-sm">
-                These terms and conditions outline the rules and regulations for the use of {BUSINESS_DETAILS.name}'s Website and our doorstep service platform in Bangalore.
+                These terms and conditions outline the rules and regulations for the use of {BUSINESS_DETAILS.name}&apos;s Website and our doorstep service platform in Bangalore, operated by {BUSINESS_DETAILS.tradeName} (GSTIN: {BUSINESS_DETAILS.gstin}, registered office at {BUSINESS_DETAILS.address}).
               </p>
               <p className="text-slate-600 text-xs sm:text-sm">
                 By accessing this website we assume you accept these terms and conditions. Do not continue to use {BUSINESS_DETAILS.name} if you do not agree to take all of the terms and conditions stated on this page.

@@ -91,7 +91,8 @@ export default function HomePage() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: BUSINESS_DETAILS.name,
-    legalName: BUSINESS_DETAILS.fullName,
+    legalName: `${BUSINESS_DETAILS.legalName} (${BUSINESS_DETAILS.tradeName})`,
+    taxID: BUSINESS_DETAILS.gstin,
     description: 'Water Purifier Service Bangalore Doorstep Service In 60 Minutes - Repair, Maintenance & Filter Replacement',
     url: 'https://www.roservice24x7.in',
     telephone: `+91${BUSINESS_DETAILS.phone.replace(/^0/, '')}`,
@@ -99,14 +100,16 @@ export default function HomePage() {
     priceRange: '₹299 - ₹4500',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Bangalore',
-      addressRegion: 'Karnataka',
+      streetAddress: BUSINESS_DETAILS.streetAddress,
+      addressLocality: BUSINESS_DETAILS.city,
+      postalCode: BUSINESS_DETAILS.pincode,
+      addressRegion: BUSINESS_DETAILS.state,
       addressCountry: 'IN',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '12.9716',
-      longitude: '77.5946',
+      latitude: '12.8988',
+      longitude: '77.5684',
     },
     openingHoursSpecification: [
       {
@@ -347,21 +350,38 @@ export default function HomePage() {
 
 
         {/* ========================================================
-            MSME CERTIFICATE & TRUST CARD
+            GST REGISTERED ENTERPRISE TRUST CARD
             ======================================================== */}
         <section className="py-12 bg-[#0c54a0] text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20">
-              <div className="space-y-2 text-center md:text-left">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-300">
-                  Government of India Certified Enterprise
+              <div className="space-y-3 text-center md:text-left">
+                <span className="inline-block text-xs font-bold uppercase tracking-wider text-amber-300 bg-white/10 px-3 py-1 rounded-full border border-amber-300/30">
+                  Government of India GST Registered Enterprise
                 </span>
-                <h3 className="text-2xl font-black text-white">
-                  Ministry of MSME Registered Water Purifier Center
+                <h3 className="text-2xl sm:text-3xl font-black text-white">
+                  {BUSINESS_DETAILS.tradeName}
                 </h3>
-                <p className="text-sm text-blue-100 max-w-2xl">
-                  {BUSINESS_DETAILS.name} is officially registered under the Udyam portal with registration number:
-                  <span className="font-mono font-bold text-amber-300 ml-1.5">{BUSINESS_DETAILS.udyamNumber}</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-blue-100 max-w-2xl">
+                  <div>
+                    <span className="text-white/70">GSTIN:</span>{' '}
+                    <span className="font-mono font-bold text-amber-300">{BUSINESS_DETAILS.gstin}</span>
+                  </div>
+                  <div>
+                    <span className="text-white/70">Proprietor:</span>{' '}
+                    <span className="font-semibold text-white">{BUSINESS_DETAILS.legalName}</span>
+                  </div>
+                  <div>
+                    <span className="text-white/70">Registration Date:</span>{' '}
+                    <span className="font-medium text-white">{BUSINESS_DETAILS.gstRegistrationDate}</span>
+                  </div>
+                  <div>
+                    <span className="text-white/70">Constitution:</span>{' '}
+                    <span className="font-medium text-white">{BUSINESS_DETAILS.constitution}</span>
+                  </div>
+                </div>
+                <p className="text-xs text-blue-200/90 pt-1 max-w-2xl">
+                  <span className="text-white font-semibold">Principal Place of Business:</span> {BUSINESS_DETAILS.address}
                 </p>
               </div>
 

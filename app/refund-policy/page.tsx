@@ -71,9 +71,12 @@ export default function RefundPolicyPage() {
               </p>
             </div>
 
-            <div className="border-t border-slate-100 pt-6 mt-8">
+            <div className="border-t border-slate-100 pt-6 mt-8 space-y-2">
               <p className="text-xs text-slate-500 font-medium">
-                For refund processing or warranty support, please call our service desk at <a href={`tel:${BUSINESS_DETAILS.phone}`} className="text-sky-600 font-bold hover:underline">{BUSINESS_DETAILS.phone}</a>.
+                Registered Entity: <strong className="text-slate-700">{BUSINESS_DETAILS.tradeName}</strong> • GSTIN: <span className="font-mono font-bold text-slate-800">{BUSINESS_DETAILS.gstin}</span>
+              </p>
+              <p className="text-xs text-slate-500 font-medium">
+                For refund processing or warranty support, please call our service desk at <a href={`tel:${BUSINESS_DETAILS.phone}`} className="text-sky-600 font-bold hover:underline">{BUSINESS_DETAILS.phone}</a> or visit our service office at {BUSINESS_DETAILS.address}.
               </p>
             </div>
           </div>

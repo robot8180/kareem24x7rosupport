@@ -38,7 +38,7 @@ export default function DisclaimerPage() {
             <div className="space-y-3">
               <h2 className="text-base sm:text-lg font-bold text-slate-900">1. Independent Service Provider Status</h2>
               <p className="text-slate-600 text-xs sm:text-sm">
-                {BUSINESS_DETAILS.name} is an independent multi-brand water purifier sales, repair, and doorstep service provider operating in Bangalore, Karnataka.
+                {BUSINESS_DETAILS.name} (operated by {BUSINESS_DETAILS.tradeName}, GSTIN: {BUSINESS_DETAILS.gstin}, registered office at {BUSINESS_DETAILS.address}) is an independent multi-brand water purifier sales, repair, and doorstep service provider operating in Bangalore, Karnataka.
               </p>
               <p className="text-slate-600 text-xs sm:text-sm">
                 We are NOT an official authorized service center, franchise, or direct subsidiary of Kent RO Systems, Eureka Forbes (Aquaguard), Pureit, AO Smith India, LG Electronics, or any other trademark owner unless explicitly stated.

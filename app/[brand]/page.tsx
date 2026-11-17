@@ -200,7 +200,17 @@ export default async function BrandPage({ params }: PageProps) {
       provider: {
         '@type': 'LocalBusiness',
         name: BUSINESS_DETAILS.name,
+        legalName: `${BUSINESS_DETAILS.legalName} (${BUSINESS_DETAILS.tradeName})`,
+        taxID: BUSINESS_DETAILS.gstin,
         telephone: `+91${BUSINESS_DETAILS.phone.replace(/^0/, '')}`,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: BUSINESS_DETAILS.streetAddress,
+          addressLocality: BUSINESS_DETAILS.city,
+          postalCode: BUSINESS_DETAILS.pincode,
+          addressRegion: BUSINESS_DETAILS.state,
+          addressCountry: 'IN',
+        },
       },
       areaServed: {
         '@type': 'City',
@@ -341,8 +351,8 @@ export default async function BrandPage({ params }: PageProps) {
                   <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 flex items-center gap-2.5">
                     <Award className="w-5 h-5 text-amber-500 shrink-0" />
                     <div>
-                      <p className="text-xs font-bold text-slate-900">Govt MSME Certified</p>
-                      <p className="text-[11px] text-slate-500 font-mono">{BUSINESS_DETAILS.udyamNumber}</p>
+                      <p className="text-xs font-bold text-slate-900">Govt GST Registered</p>
+                      <p className="text-[11px] text-slate-500 font-mono font-medium">{BUSINESS_DETAILS.gstin}</p>
                     </div>
                   </div>
 
@@ -597,7 +607,7 @@ export default async function BrandPage({ params }: PageProps) {
 
 
         {/* ========================================================
-            MSME CERTIFICATE & TRUST CARD
+            GST REGISTERED ENTERPRISE TRUST CARD
             ======================================================== */}
         <section
           className="py-12 text-white"
@@ -605,16 +615,33 @@ export default async function BrandPage({ params }: PageProps) {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20">
-              <div className="space-y-2 text-center md:text-left">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-300">
-                  Government of India Certified Enterprise
+              <div className="space-y-3 text-center md:text-left">
+                <span className="inline-block text-xs font-bold uppercase tracking-wider text-amber-300 bg-white/10 px-3 py-1 rounded-full border border-amber-300/30">
+                  Government of India GST Registered Enterprise
                 </span>
-                <h3 className="text-2xl font-black text-white">
-                  Ministry of MSME Registered Water Purifier Center
+                <h3 className="text-2xl sm:text-3xl font-black text-white">
+                  {BUSINESS_DETAILS.tradeName}
                 </h3>
-                <p className="text-sm text-white/90 max-w-2xl">
-                  {BUSINESS_DETAILS.name} is officially registered under the Udyam portal with registration number:
-                  <span className="font-mono font-bold text-amber-300 ml-1.5">{BUSINESS_DETAILS.udyamNumber}</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-white/90 max-w-2xl">
+                  <div>
+                    <span className="text-white/70">GSTIN:</span>{' '}
+                    <span className="font-mono font-bold text-amber-300">{BUSINESS_DETAILS.gstin}</span>
+                  </div>
+                  <div>
+                    <span className="text-white/70">Proprietor:</span>{' '}
+                    <span className="font-semibold text-white">{BUSINESS_DETAILS.legalName}</span>
+                  </div>
+                  <div>
+                    <span className="text-white/70">Registration Date:</span>{' '}
+                    <span className="font-medium text-white">{BUSINESS_DETAILS.gstRegistrationDate}</span>
+                  </div>
+                  <div>
+                    <span className="text-white/70">Constitution:</span>{' '}
+                    <span className="font-medium text-white">{BUSINESS_DETAILS.constitution}</span>
+                  </div>
+                </div>
+                <p className="text-xs text-white/80 pt-1 max-w-2xl">
+                  <span className="text-white font-semibold">Principal Place of Business:</span> {BUSINESS_DETAILS.address}
                 </p>
               </div>
 

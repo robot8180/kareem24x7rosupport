@@ -141,15 +141,21 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Disclaimer & MSME Registration */}
-        <div className="pt-6 border-t border-white/10 text-center space-y-2.5">
+        {/* Bottom Disclaimer & Government Registration */}
+        <div className="pt-6 border-t border-white/10 text-center space-y-3">
           <p className="text-[11px] text-slate-400 max-w-4xl mx-auto leading-relaxed">
             {BUSINESS_DETAILS.disclaimer}
           </p>
-          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-xs text-slate-300">
-            <span>Registered MSME Enterprise:</span>
-            <span className="text-amber-300 font-mono font-bold">{BUSINESS_DETAILS.udyamNumber}</span>
-            <span>• Bangalore, Karnataka</span>
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs text-slate-300">
+            <div className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
+              <span className="text-slate-400">Govt GSTIN:</span>
+              <span className="text-amber-300 font-mono font-bold tracking-wider">{BUSINESS_DETAILS.gstin}</span>
+              <span className="text-slate-300 font-medium">({BUSINESS_DETAILS.tradeName})</span>
+            </div>
+            <div className="inline-flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-slate-300">
+              <span className="text-slate-400">Principal Office:</span>
+              <span>Yalanchenahalli, Kanakapura Road, Bengaluru - 560062</span>
+            </div>
           </div>
         </div>
 
